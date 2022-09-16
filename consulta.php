@@ -2,7 +2,7 @@
 
 require_once 'vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable('/var/www/varen/');
+$dotenv = Dotenv\Dotenv::createImmutable('varen/');
 $dotenv->load();
 
 $host=$_ENV['RDS_HOST'];
