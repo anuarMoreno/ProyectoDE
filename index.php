@@ -71,7 +71,7 @@
             <table class="table" style="font-size:24px;">
                 <h2>Ubicación en tiempo real</h2>
                 <tr class="active">
-                    <th>Enviado</th>
+                    <th>Enviado Modoficado</th>
                     <th>Latitud</th>
                     <th>Longitud</th>
                 </tr>
