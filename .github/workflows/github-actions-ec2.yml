@@ -4,7 +4,11 @@ name: Push-to-EC2
 on:
   push:
     branches:
+<<<<<<< HEAD
       - main 
+=======
+      - main
+>>>>>>> anuar
 
 jobs:
   deploy:
