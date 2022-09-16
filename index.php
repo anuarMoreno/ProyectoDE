@@ -73,7 +73,7 @@
                 <tr class="active">
                     <th>Enviado</th>
                     <th>Latitud</th>
-                    <th>Longitud</th>
+                    <th>Longitud Modificada</th>
                 </tr>
                 <tr>
                     <td id="envio"></td>
