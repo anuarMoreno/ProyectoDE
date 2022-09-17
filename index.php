@@ -124,7 +124,7 @@
                 <tr class="active">
                     <th>Enviado modificado</th>
                     <th>Latitud prueba</th>
-                    <th>Longitud</th>
+                    <th>Longitud ultima mod</th>
                 </tr>
                 <tr>
                     <td id="envio"></td>
