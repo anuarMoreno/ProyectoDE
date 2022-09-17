@@ -79,8 +79,8 @@
 
     </script>
 </head>
-<body>
-
+<body> 
+    
   <div id="lienzo">
         <header >
             <h1 id= titulo >Cosulta GPS Sitema de Rastreo</h1>
@@ -101,7 +101,10 @@
                 </tr>
             </table>
             </section>
-            <aside>
+           
+
+        </nav>
+        <aside>
                 <h2>Cartografía para monitoreo</h2>
                 <div id="map"></div>
                 <script>
@@ -129,10 +132,8 @@
                 </script>
 
             </aside>
-
-        </nav>
     </div>
-
+</body>
 <footer>
     <h3>Universidad del norte</h3>
     <h4>
