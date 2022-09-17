@@ -124,7 +124,7 @@
                 <tr class="active">
                     <th>Enviado</th>
                     <th>Latitud</th>
-                    <th>Longitud</th>
+                    <th>Longitud Prueba</th>
                 </tr>
                 <tr>
                     <td id="envio"></td>
