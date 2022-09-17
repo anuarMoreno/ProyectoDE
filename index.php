@@ -122,8 +122,8 @@
             <table class="table" style="font-size:24px;">
                 <h2>Ubicación en tiempo real</h2>
                 <tr class="active">
-                    <th>Enviado</th>
-                    <th>Latitud</th>
+                    <th>Enviado modificado</th>
+                    <th>Latitud prueba</th>
                     <th>Longitud</th>
                 </tr>
                 <tr>
