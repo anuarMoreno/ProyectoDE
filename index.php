@@ -122,9 +122,15 @@
             <table class="table" style="font-size:24px;">
                 <h2>Ubicación en tiempo real</h2>
                 <tr class="active">
+<<<<<<< HEAD
                     <th>Enviado</th>
                     <th>Latitud</th>
                     <th>Longitud Prueba</th>
+=======
+                    <th>Enviado modificado</th>
+                    <th>Latitud prueba</th>
+                    <th>Longitud</th>
+>>>>>>> 1aa88d900927cf81d5b438bc083d71c226395513
                 </tr>
                 <tr>
                     <td id="envio"></td>
