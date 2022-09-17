@@ -25,31 +25,82 @@
 
 
     <script type="text/javascript">
+                var map = {};
+                var lat1;
+                var lon1;
+                var lat;
+                var lon;
+                var marker = {};
+                var ref = {};
+                var line = {};
+                
+
+
+
+                setTimeout(inivalues, 1500);
+                async function inivalues()
+                {   const response = await fetch("consulta.php");
+                    const data = await response.json()
+                    lat1=parseFloat(document.getElementById("lat").innerHTML);
+                    lon1=parseFloat(document.getElementById("lon").innerHTML);
+                    map = L.map('map').setView([lat1, lon1], 17);
+                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '© OpenStreetMap'
+                    }).addTo(map);
+                    L.marker([lat1, lon1], {icon: myIcon}).addTo(map);
+                    line = L.polyline([], {color: 'red'}).addTo(map);
+
+
+                }
+                
 
 
                 async function tiempoReal()
                 {
                     const response = await fetch("consulta.php");
                     const data = await response.json()
-                        /*var tabla = $.ajax({
-                                url:'consulta.php',
-                                dataType:'text',
-                                async:false
-                        }).responseText;*/
 
-                    //document.getElementById("miTabla").innerHTML = JSON.stringify(data);
                     document.getElementById("lat").innerHTML = data.latitud;
                     document.getElementById("lon").innerHTML = data.longitud;
                     document.getElementById("envio").innerHTML = data.envio;
 
                     console.log(document.getElementById("miTabla").innerHTML);
-                    console.log(document.getElementById("lat").split(" "));
-                    var lat=parseFloat(document.getElementById("lat").innerHTML);
-                    var lon=parseFloat(document.getElementById("lon").innerHTML);
-                    var marker = L.marker([lat,lon]).addTo(map);
+                    lat=parseFloat(document.getElementById("lat").innerHTML);
+                    lon=parseFloat(document.getElementById("lon").innerHTML);
+                    ref = L.marker([lat, lon], {icon: myIcon});
+
+                
 
                 }
                 setInterval(tiempoReal, 1000);
+                
+
+
+                setTimeout(live, 2000);
+                function live(){
+                    
+                    if (marker != ref) {
+                        map.removeLayer(marker);
+                    };
+                    
+                    marker = L.marker([lat, lon], {icon: myIcon}).addTo(map);
+
+
+                    line.addLatLng([lat, lon]);
+
+
+                }
+                setInterval(live, 3000);
+
+
+
+                
+
+
+
+
+                
 
 
 
@@ -73,7 +124,7 @@
                 <tr class="active">
                     <th>Enviado</th>
                     <th>Latitud</th>
-                    <th>Longitud Modificada</th>
+                    <th>Longitud</th>
                 </tr>
                 <tr>
                     <td id="envio"></td>
@@ -87,12 +138,20 @@
           <div id="map"></div>
 
 <script>
+    setTimeout(mapa, 2000);
+    function mapa(){ 
+    
 
-var map = L.map('map').setView([11.016893, -74.851192], 13);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
+    }
+
+
+    var myIcon = L.icon({
+        iconUrl: 'https://raw.githubusercontent.com/iconic/open-iconic/master/png/map-marker-8x.png',
+        iconSize: [32, 32],
+        iconAnchor: [16,32]
+    });
+
+  
 
     var polylinePoints = [
     [11.016550, -74.849849],
@@ -102,7 +161,10 @@ var map = L.map('map').setView([11.016893, -74.851192], 13);
     [11.016638, -74.858026]
     ];
 
-    var polyline = L.polyline(polylinePoints).addTo(map);
+    //var polyline = L.polyline(polylinePoints).addTo(map);
+    
+
+    
 
 
 
