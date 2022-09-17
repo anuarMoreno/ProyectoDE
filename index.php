@@ -33,10 +33,14 @@
                 var marker = {};
                 var ref = {};
 <<<<<<< HEAD
+<<<<<<< HEAD
                 var linerf = {};
 =======
                 var line = {};
 >>>>>>> main
+=======
+                var line = {};
+>>>>>>> develop
                 
 
 
@@ -48,19 +52,27 @@
                     lat1=parseFloat(document.getElementById("lat").innerHTML);
                     lon1=parseFloat(document.getElementById("lon").innerHTML);
 <<<<<<< HEAD
+<<<<<<< HEAD
                     map = L.map('map').setView([lat1, lon1], 13);
 =======
                     map = L.map('map').setView([lat1, lon1], 17);
 >>>>>>> main
+=======
+                    map = L.map('map').setView([lat1, lon1], 17);
+>>>>>>> develop
                         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         maxZoom: 19,
                         attribution: '© OpenStreetMap'
                     }).addTo(map);
                     L.marker([lat1, lon1], {icon: myIcon}).addTo(map);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     line = L.polyline([], {color: 'red'}).addTo(map);
 >>>>>>> main
+=======
+                    line = L.polyline([], {color: 'red'}).addTo(map);
+>>>>>>> develop
 
 
                 }
@@ -112,6 +124,7 @@
 
 
                 
+<<<<<<< HEAD
 
                 function live(){
                     
@@ -137,6 +150,8 @@
 
 
                 
+=======
+>>>>>>> develop
 
 
 
