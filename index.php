@@ -32,7 +32,11 @@
                 var lon;
                 var marker = {};
                 var ref = {};
+<<<<<<< HEAD
                 var linerf = {};
+=======
+                var line = {};
+>>>>>>> main
                 
 
 
@@ -43,12 +47,20 @@
                     const data = await response.json()
                     lat1=parseFloat(document.getElementById("lat").innerHTML);
                     lon1=parseFloat(document.getElementById("lon").innerHTML);
+<<<<<<< HEAD
                     map = L.map('map').setView([lat1, lon1], 13);
+=======
+                    map = L.map('map').setView([lat1, lon1], 17);
+>>>>>>> main
                         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         maxZoom: 19,
                         attribution: '© OpenStreetMap'
                     }).addTo(map);
                     L.marker([lat1, lon1], {icon: myIcon}).addTo(map);
+<<<<<<< HEAD
+=======
+                    line = L.polyline([], {color: 'red'}).addTo(map);
+>>>>>>> main
 
 
                 }
@@ -73,6 +85,33 @@
 
                 }
                 setInterval(tiempoReal, 1000);
+                
+
+
+                setTimeout(live, 2000);
+                function live(){
+                    
+                    if (marker != ref) {
+                        map.removeLayer(marker);
+                    };
+                    
+                    marker = L.marker([lat, lon], {icon: myIcon}).addTo(map);
+
+
+                    line.addLatLng([lat, lon]);
+
+
+                }
+                setInterval(live, 3000);
+
+
+
+                
+
+
+
+
+                
 
                 function live(){
                     
