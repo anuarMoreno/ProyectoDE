@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content = "IE-edge">
+    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin=""/>
@@ -131,7 +133,15 @@
     
                 </script>
 
-            </aside>
+        </aside>
+        <section1>
+            <form method="POST" action="windowtime.php">
+                <input type="datetime-local" name="20202-09-7T02:30" id="inicial" required>
+                <input type="datetime-local" name="20202-09-21T14:30" id="final"  required>
+                <input type="submit" value="CONSULTAR">
+            </form>
+                 
+        </section1>
     </div>
 </body>
 <footer>
