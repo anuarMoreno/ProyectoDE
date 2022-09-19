@@ -23,7 +23,7 @@
     $final = $_POST['final'];
 
     $wtime=$conexion->query("SELECT * FROM registro_posicion  WHERE envio BETWEEN '$inicial' AND '$final'");
-    echo "SELECT * FROM registro_posicion  WHERE envio BETWEEN '[$inicial]' AND '{$final}'";
+    echo "SELECT * FROM registro_posicion  WHERE envio BETWEEN '$inicial' AND '$final'";
     while ($filaMensaje = $wtime->fetch_array(MYSQLI_BOTH)){
          $data = array(
         "latitud" => $filaMensaje["latitud"],
