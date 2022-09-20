@@ -22,6 +22,7 @@ if ($conexion -> connect_errno)
 /////////////////////// CONSULTA A LA BASE DE DATOS ////////////////////////
 $resPosicion=$conexion->query("SELECT * FROM registro_posicion  WHERE id = (SELECT max(id) FROM registro_posicion)");
 
+
 while ($filaMensaje = $resPosicion->fetch_array(MYSQLI_BOTH))
 {
     $data = array(
