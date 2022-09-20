@@ -93,7 +93,7 @@
                 <h2>Ubicación en tiempo real</h2>
                 <tr class="active">
                     <th>Enviado modificado</th>
-                    <th>Latitud prueba</th>
+                    <th>Latitud prueba 999</th>
                     <th>Longitud ultima mod</th>
                 </tr>
                 <tr>
