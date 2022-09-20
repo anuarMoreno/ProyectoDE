@@ -133,17 +133,6 @@
     
                 </script>
 
-        </aside>
-        <section1>
-            <form method="POST" action="windowtime.php">
-                <input type="datetime-local" value="2022-08-31T16:15:03" name="inicial" required step="1">
-                <input type="datetime-local" value="2022-08-31T16:15:20" name="final" required step="1">
-                
-
-                <input type="submit" value="CONSULTAR">
-            </form>
-                 
-        </section1>
     </div>
 </body>
 <footer>
