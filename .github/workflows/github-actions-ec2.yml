@@ -22,45 +22,24 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
-  deploy:
-    name: Deploy to EC2 on main branch push
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout the files
-        uses: actions/checkout@v2
-
-      - name: Deploy to Server 1
+  
+      - name: Deploy to Server 2
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEYDAVID }}
           REMOTE_HOST: ${{ secrets.HOST_DNSDAVID  }}
           REMOTE_USER: ${{ secrets.USERNAMEDAVID  }}
           TARGET: ${{ secrets.TARGET_DIRDAVID  }}
-  deploy:
-    name: Deploy to EC2 on main branch push
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout the files
-        uses: actions/checkout@v2
-
-      - name: Deploy to Server 1
+  
+      - name: Deploy to Server 3
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEYCHASOY }}
           REMOTE_HOST: ${{ secrets.HOST_DNSCHASOY }}
           REMOTE_USER: ${{ secrets.USERNAMECHASOY }}
           TARGET: ${{ secrets.TARGET_DIRCHASOY }}
-  deploy:
-    name: Deploy to EC2 on main branch push
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout the files
-        uses: actions/checkout@v2
-
-      - name: Deploy to Server 1
+      - name: Deploy to Server 4
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEYDUQUE }}
