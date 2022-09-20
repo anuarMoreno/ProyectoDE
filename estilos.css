@@ -54,9 +54,9 @@ tr{
   border-radius: 70px;
 }
 aside{
-  width: 700px;
+  width: 650px;
   margin: auto;
-  float: left;
+  float:right;
   text-align: right;
   padding: 0px;
   
@@ -75,4 +75,12 @@ h4{
 }
 footer{
   clear: both;
+}
+
+section1{
+  height: 400px;
+  width: 500px;
+  margin: auto;
+  float: left;
+  padding: 0px;
 }
