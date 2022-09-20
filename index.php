@@ -94,7 +94,7 @@
                 <tr class="active">
                     <th>Enviado modificado</th>
                     <th>Latitud prueba 999</th>
-                    <th>Longitud ultima mod</th>
+                    <th>Longitud ultima si es la ultima.</th>
                 </tr>
                 <tr>
                     <td id="envio"></td>
