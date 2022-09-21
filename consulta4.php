@@ -10,7 +10,13 @@ $usuario=$_ENV['RDS_USER'];
 $contraseña=$_ENV['RDS_PASSWORD'];
 $base=$_ENV['RDS_DATABASE'];
 
-$conn = mysqli_connect('RDS_HOST', 'RDS_USER', 'RDS_PASSWORD', 'RDS_DATABASE');
+$conexion= new mysqli($host, $usuario, $contraseña, $base);
+if ($conexion -> connect_errno)
+{
+        die("Fallo la conexion:(".$conexion -> mysqli_connect_errno().")".$conexion->
+                mysqli_connect_error());
+}
+
 
 if (isset($_GET["var1"]) && isset($_GET["var2"]) && isset($_GET["var3"]) && isset($_GET["var4"])) {
 

@@ -9,7 +9,13 @@ $usuario=$_ENV['RDS_USER'];
 $contraseña=$_ENV['RDS_PASSWORD'];
 $base=$_ENV['RDS_DATABASE'];
 
-$conn = mysqli_connect('RDS_HOST', 'RDS_USER', 'RDS_PASSWORD', 'RDS_DATABASE');
+$conexion= new mysqli($host, $usuario, $contraseña, $base);
+if ($conexion -> connect_errno)
+{
+        die("Fallo la conexion:(".$conexion -> mysqli_connect_errno().")".$conexion->
+                mysqli_connect_error());
+}
+
 
 $str = '2022-09-10 13:00';
 $fnsh =  '2022-09-15 17:00';
