@@ -1,8 +1,6 @@
 <?php
 
 
-<<<<<<< HEAD
-=======
 $dotenv = Dotenv\Dotenv::createImmutable('varen/');
 $dotenv->load();
 
@@ -16,7 +14,6 @@ if ($conexion -> connect_errno)
         die("Fallo la conexion:(".$conexion -> mysqli_connect_errno().")".$conexion->
                 mysqli_connect_error());
 }
->>>>>>> develop
 
 if (isset($_GET["var1"]) && isset($_GET["var2"]) && isset($_GET["var3"]) && isset($_GET["var4"])) {
 
