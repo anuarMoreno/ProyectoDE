@@ -10,11 +10,6 @@
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""></script>
 
-<<<<<<< HEAD
-        <link rel="stylesheet" href="estilos.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-    </script>
-=======
     <link rel="stylesheet" href="estilos.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -24,7 +19,6 @@
 			  src="https://code.jquery.com/jquery-3.6.1.js"
 			  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
 			  crossorigin="anonymous"></script>
->>>>>>> develop
 
     <title>Página Web DE</title>
     <style>
