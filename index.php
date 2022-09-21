@@ -256,7 +256,7 @@
                         maxlon2 = sendlon2+0.0005;
                         minlon2 = sendlon2-0.0005;
 
-                        $.getJSON('consulta4.php', {var1: maxlat2, var2: minlat2, var3: maxlon2, var4: minlon2}, function (data, textStatus, jqXHR) {
+                        $.getJSON('consulta3.php', {var3: maxlat2, var4: minlat2, var5: maxlon2, var6: minlon2}, function (data, textStatus, jqXHR) {
                         let recdates = data.map(a => a.envio);
                         alert(recdates.join("\n"));
 
