@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-        crossorigin=""/>
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
 
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
@@ -109,7 +109,7 @@
                 <h2>Ubicación en tiempo real</h2>
                 <tr class="active">
                     <th>Fecha de envio</th>
-                    <th>Latitud </th>
+                    <th>Latitud</th>
                     <th>Longitud</th>
                 </tr>
                 <tr>
@@ -256,7 +256,7 @@
                         maxlon2 = sendlon2+0.0005;
                         minlon2 = sendlon2-0.0005;
 
-                        $.getJSON('consulta3.php', {var3: maxlat2, var4: minlat2, var5: maxlon2, var6: minlon2}, function (data, textStatus, jqXHR) {
+                        $.getJSON('consulta4.php', {var1: maxlat2, var2: minlat2, var3: maxlon2, var4: minlon2}, function (data, textStatus, jqXHR) {
                         let recdates = data.map(a => a.envio);
                         alert(recdates.join("\n"));
 
