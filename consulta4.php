@@ -17,7 +17,7 @@ if ($conexion -> connect_errno)
                 mysqli_connect_error());
 }
 
-include('consulata.php');
+include('consulta.php');
 
 if (isset($_GET["var1"]) && isset($_GET["var2"]) && isset($_GET["var3"]) && isset($_GET["var4"])) {
 

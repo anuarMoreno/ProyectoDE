@@ -16,7 +16,7 @@ if ($conexion -> connect_errno)
                 mysqli_connect_error());
 }
 
-include('consulata.php');
+include('consulta.php');
 
 $str = '2022-09-10 13:00';
 $fnsh =  '2022-09-15 17:00';
