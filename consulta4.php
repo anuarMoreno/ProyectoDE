@@ -1,6 +1,16 @@
 <?php
 
-require_once 'vendor/autoload.php';
+
+
+if (isset($_GET["var1"]) && isset($_GET["var2"]) && isset($_GET["var3"]) && isset($_GET["var4"])) {
+
+    $maxlat2 = $_GET["var1"];
+    $minlat2 = $_GET["var2"];
+    $maxlon2 = $_GET["var3"];
+    $minlon2 = $_GET["var4"];
+
+
+    require_once 'vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable('varen/');
 $dotenv->load();
@@ -18,16 +28,6 @@ if ($conexion -> connect_errno)
 }
 
 include('consulta.php');
-
-if (isset($_GET["var1"]) && isset($_GET["var2"]) && isset($_GET["var3"]) && isset($_GET["var4"])) {
-
-    $maxlat2 = $_GET["var1"];
-    $minlat2 = $_GET["var2"];
-    $maxlon2 = $_GET["var3"];
-    $minlon2 = $_GET["var4"];
-
-
-    
     
 
     $sql = mysqli_query($conn, "SELECT envio FROM registro_posicion  WHERE latitud >= '$minlat2' AND latitud <= '$maxlat2' AND longitud >= '$minlon2' AND longitud <= '$maxlon2' ");
