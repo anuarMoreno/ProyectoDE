@@ -109,7 +109,7 @@
                 <h2>Ubicación en tiempo real</h2>
                 <tr class="active">
                     <th>Fecha de envio</th>
-                    <th>Latitud</th>
+                    <th>Latitud 02</th>
                     <th>Longitud</th>
                 </tr>
                 <tr>
