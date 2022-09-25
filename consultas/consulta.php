@@ -1,6 +1,6 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once 'var/www/html/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable('var/www/html/varen/');
 $dotenv->load();
