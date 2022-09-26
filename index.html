@@ -23,7 +23,11 @@
 
     <script type="text/javascript" src="script1.js"></script>
 
+<<<<<<< HEAD
     <title>TIO RICO v4</title>
+=======
+    <title>Location Tracker</title>
+>>>>>>> develop
 </head>
 <body>
 
@@ -55,6 +59,7 @@
       <li><a id="lat"></a></li>
       <li><a id="lon"></a></li>
     </ul>
+    <p><button id=centerview type="button" onclick="map.setView([lat1, lon1], 16);">Centrar vista</button></p>
     </div>
 
     <div id="overlay1" hidden>
@@ -88,6 +93,20 @@
     </footer>
 
 
+    <dialog id="noresults">
+      <img class="logo" src="images/alert.png" width="100">
+      <p><h2>No se encontraron resultados</h2></p>
+      <p><button id="closealert">Aceptar</button></p>
+
+
+
+    </dialog>
+
+    <dialog id="restable">
+      <p><h2>Fechas:</h2></p>
+    <div id="table2"></div>
+    <p><button id="closealert2">Aceptar</button></p>
+  </dialog>
   </div>
         
 
