@@ -24,7 +24,7 @@ body{
     border-radius: 10px;
     box-shadow: 1px 1px 1px gray;
     min-height: 200px;
-  
+    text-align: center;
 }
 
 #overlay2{
@@ -38,6 +38,7 @@ body{
   border-radius: 10px;
   box-shadow: 1px 1px 1px gray;
   min-height: 100px;
+  text-align: center;
 
 }
 
@@ -115,4 +116,43 @@ footer{
   border-radius: 50px;
   transition: all 0.3s ease 0s;
 
+}
+
+#noresults{
+  font-family: "Montserrat", sans-serif;
+  z-index: 1000;
+  background: rgba(255,255,255,0.7);
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px gray;
+  min-height: 100px;
+  text-align: center;
+}
+
+#noresults::backdrop{
+  background-color: rgba(0, 0, 0, .55);
+
+
+}
+
+
+#restable{
+  font-family: "Montserrat", sans-serif;
+  z-index: 1000;
+  background: rgba(255,255,255,0.7);
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px gray;
+  min-height: 100px;
+  text-align: center;
+}
+
+#restable::backdrop{
+  background-color: rgba(0, 0, 0, .55);
+
+
+}
+
+table, th, td {
+  border: 1px solid;
 }
