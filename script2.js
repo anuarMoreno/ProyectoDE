@@ -13,7 +13,6 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
     onChange: function (selectedDates) {
         if (selectedDates.length === 1) {
             defdate1 = flatpickr.formatDate(fecha.selectedDates[0], "Y-m-d H:i")
-            console.log(defdate1);
             fecha2.set('minDate', fecha.selectedDates[0]);
         }
     }
@@ -31,7 +30,6 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
     onChange: function (selectedDates) {
         if (selectedDates.length === 1) {
             defdate2 = flatpickr.formatDate(fecha2.selectedDates[0], "Y-m-d H:i")
-            console.log(defdate2);
         }
     }
     });
@@ -44,7 +42,6 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
         defdefdate2 = defdate2.toString();
 
         $.getJSON('consultas/consulta3.php', {var1: defdefdate1, var2: defdefdate2}, function (data, textStatus, jqXHR) {
-            clearmap()
             let latgot = data.map(a => a.latitud);
             let longot = data.map(a => a.longitud);
 
@@ -56,14 +53,21 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
             for (var i = 0; i < latgot.length; i++) {
             gotlocations[i] = [latgot[i],longot[i]];
             }
-            console.log(gotlocations);
-            polyline2 = L.polyline(gotlocations, {color: 'blue'}).addTo(map);
+
+            if (!gotlocations.length){
+                document.getElementById("noresults").showModal();
+                
+            }
+            else{
+                clearmap()
+                polyline2 = L.polyline(gotlocations, {color: 'blue'}).addTo(map);
+                map.setView(gotlocations[0], 15);
+            }
         });
 
 
     };
 
-    
     
     function clearmap(){
 
@@ -88,7 +92,7 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
     function onMapClick(e) {
         popup
             .setLatLng(e.latlng)
-            .setContent("You clicked the map at " + e.latlng.toString())
+            .setContent("Seleccionaste la ubicación: " + e.latlng.toString())
             .openOn(map);
             document.getElementById("latsch").value = e.latlng.lat;
             document.getElementById("lonsch").value = e.latlng.lng;
@@ -113,16 +117,33 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
 
             $.getJSON('consultas/consulta4.php', {var1: maxlat2, var2: minlat2, var3: maxlon2, var4: minlon2}, function (data, textStatus, jqXHR) {
             let recdates = data.map(a => a.envio);
-            alert(recdates.join("\n"));
+            if (!recdates.length){
+                document.getElementById("noresults").showModal();
 
+            }
+            else{
+                var table2 = "<table><tr>";
+                recdates.forEach((value, i) => {
+                    table2 += `<td>${value}</td>`;
+                    var next = i + 1;
+                    if (next%1==0 && next!=recdates.length) { table2 += "</tr><tr>"; }
+                });
+                table2 += "</tr></table>";
+                document.getElementById("table2").innerHTML = table2;
+                document.getElementById("restable").showModal();
+            
+            }
+            
             
         });
 
         }
 
 
-
     }
+
+
+
 
     
     $( "#button4" ).click(function() {
@@ -133,9 +154,13 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
         $( "#overlay1" ).toggle();
     });
 
+    $( "#closealert" ).click(function() {
+        document.getElementById("noresults").close();
+    });
 
-
-
+    $( "#closealert2" ).click(function() {
+        document.getElementById("restable").close();
+    });
 
 var myIcon = L.icon({
     iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
