@@ -2,6 +2,9 @@ var defdate1;
 var defdate2;
 var gotlocations;
 var polyline2;
+var circle;
+var selctlat;
+var selctlon;
 var mark2 = L.marker([22, 22], {icon: myIcon});
 
     fecha = flatpickr('#calendar', {
@@ -60,7 +63,7 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
             }
             else{
                 clearmap()
-                polyline2 = L.polyline(gotlocations, {color: 'blue'}).addTo(map);
+                polyline2 = L.polyline(gotlocations, {color: 'rgba(0, 136, 169, 0.8)'}).addTo(map);
                 map.setView(gotlocations[0], 15);
             }
         });
@@ -92,16 +95,41 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
     function onMapClick(e) {
         popup
             .setLatLng(e.latlng)
-            .setContent("Seleccionaste la ubicación: " + e.latlng.toString())
+            .setContent("Seleccionaste la ubicación: " + e.latlng.toString() + '<br><button id=addcircle type="button" onclick="addcircle()">Agregar circulo</button>')
             .openOn(map);
-            document.getElementById("latsch").value = e.latlng.lat;
-            document.getElementById("lonsch").value = e.latlng.lng;
+            selctlat = e.latlng.lat;
+            selctlon = e.latlng.lng;
+    }
+
+    function addcircle(){
+        if (circle != undefined) {
+            circle.remove();
+        };
+        document.getElementById("latsch").value = selctlat;
+        document.getElementById("lonsch").value = selctlon;
+        circle = L.circle([document.getElementById("latsch").value, document.getElementById("lonsch").value], {
+            color: 'rgba(0, 136, 169, 0.8)',
+            fillColor: 'rgba(0, 136, 169, 0.6)',
+            fillOpacity: 0.5,
+            radius: 120
+        }).addTo(map);
+        circle.bindPopup("Radio: " + '<input id=radiusc class=input placeholder="Radio en metros">' + '<br><button id=setradiusb type="button" onclick="setradius()">Cambiar</button>');
+        document.getElementById("radius").value = 120;
+        popup.close();
+
+    }
+
+    function setradius(){
+        
+        circle.setRadius(document.getElementById("radiusc").value);
+        document.getElementById("radius").value = document.getElementById("radiusc").value;
+        circle.closePopup()
     }
 
     document.getElementById("button3").onclick = function(){
 
-        sendlat2 = document.getElementById("latsch").value = document.getElementById("latsch").value
-        sendlon2 = document.getElementById("lonsch").value = document.getElementById("lonsch").value
+        sendlat2 = document.getElementById("latsch").value;
+        sendlon2 = document.getElementById("lonsch").value;
 
         sendlat2 = parseFloat(sendlat2);
         sendlon2 = parseFloat(sendlon2);
@@ -110,12 +138,8 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
 
             sendlat2 = +sendlat2.toFixed(4);
             sendlon2 = +sendlon2.toFixed(4);
-            maxlat2 = sendlat2+0.0005;
-            minlat2 = sendlat2-0.0005;
-            maxlon2 = sendlon2+0.0005;
-            minlon2 = sendlon2-0.0005;
-
-            $.getJSON('consultas/consulta4.php', {var1: maxlat2, var2: minlat2, var3: maxlon2, var4: minlon2}, function (data, textStatus, jqXHR) {
+            radius= (document.getElementById("radius").value/1000);
+            $.getJSON('consultas/consulta4.php', {var1: sendlat2, var2: sendlon2, var3: radius}, function (data, textStatus, jqXHR) {
             let recdates = data.map(a => a.envio);
             if (!recdates.length){
                 document.getElementById("noresults").showModal();
