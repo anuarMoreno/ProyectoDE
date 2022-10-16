@@ -39,12 +39,5 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAMECHASOY }}
           TARGET: ${{ secrets.TARGET_DIRCHASOY }}
 
-      - name: Deploy to Server 4
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEYDUQUE }}
-          REMOTE_HOST: ${{ secrets.HOST_DNSDUQUE }}
-          REMOTE_USER: ${{ secrets.USERNAMEDUQUE }}
-          TARGET: ${{ secrets.TARGET_DIRDUQUE }}
- 
+
           
