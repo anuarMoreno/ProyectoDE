@@ -34,8 +34,10 @@
       <img class="logo" src="images/logo.png" width="60">
       <nav>
         <ul class="nav__links">
+          <li><label>Consultando Vehículo n°1</label></li>
           <li><button id=button4 type="button">Posición actual</button></li>
           <li><button id=button5 type="button">Busqueda personalizada</button></li>
+          <li><button id=button5 type="button"><a href="index2.php">Ir a Carro 2</a></button></li>
 
         </ul>
 
