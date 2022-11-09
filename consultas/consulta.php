@@ -10,7 +10,7 @@
     $contraseña=$_ENV['RDS_PASSWORD'];
     $base=$_ENV['RDS_DATABASE'];
 
-    $conexion= mysqli($host, $usuario, $contraseña, $base);
+    $conexion= new mysqli($host, $usuario, $contraseña, $base);
 
     $resPosicion=$conexion->query("SELECT * FROM registro_posicion  WHERE id = (SELECT max(id) FROM registro_posicion)");
     $resPosicion2=$conexion->query("SELECT * FROM registro_posicion2  WHERE id = (SELECT max(id) FROM registro_posicion2)");
