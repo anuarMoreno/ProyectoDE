@@ -10,7 +10,7 @@ $usuario=$_ENV['RDS_USER'];
 $contraseña=$_ENV['RDS_PASSWORD'];
 $base=$_ENV['RDS_DATABASE'];
 
-$conexion= new mysqli($host, $usuario, $contraseña, $base);
+$conexion=mysqli($host, $usuario, $contraseña, $base);
 
 $tabla = $_GET["var3"];
 $str = '2022-09-10 13:00';

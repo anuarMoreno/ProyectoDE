@@ -1,21 +1,16 @@
 <?php
 
-require_once '/var/www/html/vendor/autoload.php';
+    require_once '/var/www/html/vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable('/var/www/html/varen/');
-$dotenv->load();
+    $dotenv = Dotenv\Dotenv::createImmutable('/var/www/html/varen/');
+    $dotenv->load();
 
-$host=$_ENV['RDS_HOST'];
-$usuario=$_ENV['RDS_USER'];
-$contraseña=$_ENV['RDS_PASSWORD'];
-$base=$_ENV['RDS_DATABASE'];
+    $host=$_ENV['RDS_HOST'];
+    $usuario=$_ENV['RDS_USER'];
+    $contraseña=$_ENV['RDS_PASSWORD'];
+    $base=$_ENV['RDS_DATABASE'];
 
-$conexion= new mysqli($host, $usuario, $contraseña, $base);
-if ($conexion -> connect_errno)
-{
-        die("Fallo la conexion:(".$conexion -> mysqli_connect_errno().")".$conexion->
-                mysqli_connect_error());
-}
+    $conexion= mysqli($host, $usuario, $contraseña, $base);
 
     $resPosicion=$conexion->query("SELECT * FROM registro_posicion  WHERE id = (SELECT max(id) FROM registro_posicion)");
     $resPosicion2=$conexion->query("SELECT * FROM registro_posicion2  WHERE id = (SELECT max(id) FROM registro_posicion2)");

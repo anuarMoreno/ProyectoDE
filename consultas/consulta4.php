@@ -22,7 +22,7 @@ if (isset($_GET["var1"]) && isset($_GET["var2"]) && isset($_GET["var3"]) && isse
     
     
     
-    $conexion= new mysqli($host, $usuario, $contraseña, $base);
+    $conexion=mysqli($host, $usuario, $contraseña, $base);
     
 
     $sql = mysqli_query($conexion, "SELECT envio, ( 6371 * acos( cos( radians($sendlat2) ) * cos( radians( latitud ) ) 
