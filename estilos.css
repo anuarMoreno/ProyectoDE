@@ -47,7 +47,7 @@ body{
 
 }
 
-#envio, #lat, #lon{
+#envio, #lat, #lon, #envio2, #lat2, #lon2{
   color: #1f7592;
   align-items: left;
 }
