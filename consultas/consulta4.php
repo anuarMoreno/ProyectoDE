@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_GET["var1"]) && isset($_GET["var2"]) && isset($_GET["var3"]) && isset($_GET["var4"]) && isset($_GET["var5"]) && isset($_GET["var6"])) {
 
     $sendlat2 = $_GET["var1"];

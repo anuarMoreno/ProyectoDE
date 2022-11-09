@@ -10,8 +10,6 @@ $usuario=$_ENV['RDS_USER'];
 $contraseña=$_ENV['RDS_PASSWORD'];
 $base=$_ENV['RDS_DATABASE'];
 
-
-
 $conexion= new mysqli($host, $usuario, $contraseña, $base);
 if ($conexion -> connect_errno)
 {
