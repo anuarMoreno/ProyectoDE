@@ -11,11 +11,6 @@ $contraseña=$_ENV['RDS_PASSWORD'];
 $base=$_ENV['RDS_DATABASE'];
 
 $conexion= new mysqli($host, $usuario, $contraseña, $base);
-if ($conexion -> connect_errno)
-{
-        die("Fallo la conexion:(".$conexion -> mysqli_connect_errno().")".$conexion->
-                mysqli_connect_error());
-}
 
 $tabla = $_GET["var3"];
 $str = '2022-09-10 13:00';

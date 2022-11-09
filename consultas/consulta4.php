@@ -23,11 +23,7 @@ if (isset($_GET["var1"]) && isset($_GET["var2"]) && isset($_GET["var3"]) && isse
     
     
     $conexion= new mysqli($host, $usuario, $contraseña, $base);
-    if ($conexion -> connect_errno)
-    {
-            die("Fallo la conexion:(".$conexion -> mysqli_connect_errno().")".$conexion->
-                    mysqli_connect_error());
-    }
+    
 
     $sql = mysqli_query($conexion, "SELECT envio, ( 6371 * acos( cos( radians($sendlat2) ) * cos( radians( latitud ) ) 
     * cos( radians( longitud ) - radians($sendlon2) ) + sin( radians($sendlat2) ) * sin(radians(latitud)) ) ) AS distance 
