@@ -6,6 +6,7 @@ var circle;
 var selctlat;
 var selctlon;
 var mark2 = L.marker([22, 22], {icon: myIcon});
+var mark22 = L.marker([22, 22], {icon: myIcon});
 
     fecha = flatpickr('#calendar', {
     dateFormat: "Y-m-d H:i",
@@ -43,8 +44,9 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
 
         defdefdate1 = defdate1.toString();
         defdefdate2 = defdate2.toString();
-
-        $.getJSON('consultas/consulta3.php', {var1: defdefdate1, var2: defdefdate2}, function (data, textStatus, jqXHR) {
+        var vehiculo = "registro_posicion" + document.getElementById("cars").value;
+        if (vehiculo == "registro_posicion1"){vehiculo = "registro_posicion"}
+        $.getJSON('consultas/consulta3.php', {var1: defdefdate1, var2: defdefdate2, var3: vehiculo}, function (data, textStatus, jqXHR) {
             let latgot = data.map(a => a.latitud);
             let longot = data.map(a => a.longitud);
 
@@ -54,7 +56,7 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
 
             var gotlocations = []
             for (var i = 0; i < latgot.length; i++) {
-            gotlocations[i] = [latgot[i],longot[i]];
+                gotlocations[i] = [latgot[i],longot[i]];
             }
 
             if (!gotlocations.length){
@@ -64,7 +66,8 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
             else{
                 clearmap()
                 polyline2 = L.polyline(gotlocations, {color: 'rgba(0, 136, 169, 0.8)'}).addTo(map);
-                map.setView(gotlocations[0], 15);
+                map.fitBounds(polyline2.getBounds());
+                console.log(Math.abs(parseFloat(gotlocations[1])-parseFloat(gotlocations[0])));
             }
         });
 
@@ -88,7 +91,14 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
     inimarker.remove();
     mark2.remove();
     mark2 = L.marker([lat, lon], {icon: myIcon0}).addTo(map);
+    mark22.remove();
+    mark22 = L.marker([lat2, lon2], {icon: myIcon0}).addTo(map);
     line = L.polyline([], {color: 'blue'}).addTo(map);
+    line2 = L.polyline([], {color: 'red'}).addTo(map);
+    $( "#busq2" ).hide();
+    $( "#button3" ).hide();
+    $( "#labposmap" ).show();
+
     }
 
 
@@ -105,41 +115,48 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
         if (circle != undefined) {
             circle.remove();
         };
-        document.getElementById("latsch").value = selctlat;
-        document.getElementById("lonsch").value = selctlon;
-        circle = L.circle([document.getElementById("latsch").value, document.getElementById("lonsch").value], {
+        document.getElementById("latsch").innerHTML = String(selctlat);
+        document.getElementById("lonsch").innerHTML = String(selctlon);
+        circle = L.circle([document.getElementById("latsch").innerHTML, document.getElementById("lonsch").innerHTML], {
             color: 'rgba(0, 136, 169, 0.8)',
             fillColor: 'rgba(0, 136, 169, 0.6)',
             fillOpacity: 0.5,
             radius: 120
         }).addTo(map);
         circle.bindPopup("Radio: " + '<input id=radiusc class=input placeholder="Radio en metros">' + '<br><button id=setradiusb type="button" onclick="setradius()">Cambiar</button>');
-        document.getElementById("radius").value = 120;
+        document.getElementById("radius").innerHTML = 120;
         popup.close();
+        $( "#busq2" ).show();
+        $( "#button3" ).show();
+        $( "#labposmap" ).hide();
 
     }
 
     function setradius(){
         
-        circle.setRadius(document.getElementById("radiusc").value);
-        document.getElementById("radius").value = document.getElementById("radiusc").value;
-        circle.closePopup()
+        if (document.getElementById("radiusc").value != ""){
+            circle.setRadius(document.getElementById("radiusc").value);
+            document.getElementById("radius").innerHTML = document.getElementById("radiusc").value;
+            circle.closePopup()
+        }
     }
 
     document.getElementById("button3").onclick = function(){
 
-        sendlat2 = document.getElementById("latsch").value;
-        sendlon2 = document.getElementById("lonsch").value;
+        sendlat2 = document.getElementById("latsch").innerHTML;
+        sendlon2 = document.getElementById("lonsch").innerHTML;
 
         sendlat2 = parseFloat(sendlat2);
         sendlon2 = parseFloat(sendlon2);
 
-        if (sendlat2 != "" && !isNaN(sendlat2) && !isNaN(sendlon2)){
+        if (sendlat2 != "" && !isNaN(sendlat2) && !isNaN(sendlon2) && String(defdate1) != "" && String(defdate2) != ""){
 
             sendlat2 = +sendlat2.toFixed(4);
             sendlon2 = +sendlon2.toFixed(4);
-            radius= (document.getElementById("radius").value/1000);
-            $.getJSON('consultas/consulta4.php', {var1: sendlat2, var2: sendlon2, var3: radius}, function (data, textStatus, jqXHR) {
+            radius= (document.getElementById("radius").innerHTML/1000);
+            var vehiculo = "registro_posicion" + document.getElementById("cars").value;
+            if (vehiculo == "registro_posicion1"){vehiculo = "registro_posicion"}
+            $.getJSON('consultas/consulta4.php', {var1: sendlat2, var2: sendlon2, var3: radius, var4: String(defdate1), var5: String(defdate2), var6: vehiculo}, function (data, textStatus, jqXHR) {
             let recdates = data.map(a => a.envio);
             if (!recdates.length){
                 document.getElementById("noresults").showModal();
