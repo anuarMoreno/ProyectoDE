@@ -113,7 +113,7 @@ var mark2 = L.marker([22, 22], {icon: myIcon});
             fillOpacity: 0.5,
             radius: 120
         }).addTo(map);
-        circle.bindPopup("Radio: " + '<input id=radiusc class=input placeholder="Radio en metros">' + '<br><button id=setradiusb type="button" onclick="setradius()">Cambiar</button>');
+        circle.bindPopup("Radio: " + '<input id=radiusc type="number" min="1" class=input placeholder="Radio en metros">' + '<br><button id=setradiusb type="button" onclick="setradius()">Cambiar</button>');
         document.getElementById("radius").value = 120;
         popup.close();
 
