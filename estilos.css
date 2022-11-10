@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+html, body, #container{
+  height: 100%;
+
+}
+
 #map{
   width: 100%;
-  height: 1060px;
+  height: 80%;
 }
 
 body{
@@ -42,7 +47,7 @@ body{
 
 }
 
-#envio, #lat, #lon{
+#envio, #lat, #lon, #envio2, #lat2, #lon2{
   color: #1f7592;
   align-items: left;
 }
@@ -60,6 +65,7 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 30px 10%;
+  height: 5%;
 }
 
 .logo{
@@ -107,6 +113,7 @@ footer{
   text-align: center;
   font-family: "Montserrat", sans-serif;
   color: #edf0f1;
+  height: 5%;
 }
 
 #footnames{

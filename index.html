@@ -13,6 +13,9 @@
 
     <link rel="stylesheet" href="estilos.css">
 
+    <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
+    <script src="//unpkg.com/leaflet-gesture-handling"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
@@ -22,6 +25,8 @@
 			  crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="script1.js"></script>
+
+    
 
     <title>Location Tracker</title>
 </head>
@@ -49,28 +54,38 @@
     <div class="clearfix"></div>
 
     <div id="overlay2" hidden>
-      <h3>Ultima Ubicación (Fecha/lat/lon):</h3>
-    <ul class="nav__links">
-      <li><a id="envio"></a></li>
-      <li><a id="lat"></a></li>
-      <li><a id="lon"></a></li>
-    </ul>
-    <p><button id=centerview type="button" onclick="map.setView([lat1, lon1], 16);">Centrar vista</button></p>
+      <h3>Ultima Ubicación</h3>
+      <h4>(Vehiculo/Fecha/lat/lon)</h4>
+      <ul class="nav__links">
+        <li><button id=centerview type="button" onclick="map.setView([lat, lon], 16);">1</button></li>
+        <li><a id="envio"></a></li>
+        <li><a id="lat"></a></li>
+        <li><a id="lon"></a></li>
+      </ul>
+      <ul class="nav__links">
+        <li><button id=centerview2 type="button" onclick="map.setView([lat2, lon2], 16);">2</button></li>
+        <li><a id="envio2">hola</a></li>
+        <li><a id="lat2">hola</a></li>
+        <li><a id="lon2">hola</a></li>
+      </ul>
     </div>
 
-    <div id="overlay1" hidden>
-      <p><h4>Busqueda por Ubicación</h4></p>
-      <p>Lat: <input id=latsch class=input placeholder="Latitud" readonly> Lon: 
-        <input id=lonsch class=input placeholder="Longitud" readonly> Radio: <input id=radius class=input placeholder="Radio" onchange="" readonly></p>
-        <button id=button3 type="button">Buscar</button> 
+    <div id="overlay1" hidden> 
+        <p><h5>Vehiculo a consultar: <select name="cars" id="cars">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        </select></h5></p>
         <p><h4>Busqueda por Fecha</h4></p>
         <p>desde <input id=calendar class=calendar placeholder="Seleccione fecha"> hasta 
-          <input id=calendar2 class=calendar2 placeholder="Seleccione fecha"></p>
-          <p>
-          <button id=button1 type="button">Buscar</button> 
-          <button id=button2 type="button" onclick="clearmap()">Limpiar mapa</button> 
-          </p>
-
+        <input id=calendar2 class=calendar2 placeholder="Seleccione fecha"></p>
+        <p>
+        <button id=button1 type="button">Buscar</button> 
+        <button id=button2 type="button" onclick="clearmap()">Limpiar mapa</button> 
+        </p>
+        <p><h4>Busqueda por Ubicación</h4></p>
+        <p><h5 id="labposmap">Seleccione un lugar en el mapa para buscar</h5></p>
+        <p><div id="busq2" hidden> Lat: <div id=latsch></div> Lon: <div id=lonsch></div> Radio (click al circulo para modificar): <div id=radius></div> </div></p>
+        <button id=button3 type="button" hidden>Buscar</button>
     </div>
 
     <div id="map"></div>
